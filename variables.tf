@@ -72,7 +72,7 @@ variable "tags" {
 variable "replicas" {
   type        = list(string)
   description = "AWS regions for Global DynamoDB Tables V2, check https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html"
-  default     = null
+  default     = []
 }
 
 variable "global_secondary_index" {
