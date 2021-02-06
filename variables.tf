@@ -4,11 +4,6 @@ variable "name" {
   description = "Name of the DynamoDB Table"
 }
 
-variable "dynamodb_region" {
-  type        = string
-  description = "AWS region where DynamoDB Table should be deployed"
-}
-
 variable "billing_mode" {
   type        = string
   description = "PROVISIONED or PAY_PER_REQUEST, check https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_table"
