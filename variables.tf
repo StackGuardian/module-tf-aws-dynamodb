@@ -75,13 +75,21 @@ variable "replicas" {
   default     = []
 }
 
-variable "global_secondary_index" {
-  type        = map(any)
+variable "global_secondary_indexes" {
+  type = list(object({
+    name               = string
+    hash_key           = string
+    range_key          = string
+    write_capacity     = number
+    read_capacity      = number
+    projection_type    = string
+    non_key_attributes = list(string)
+  }))
   description = <<EOL
     Seettings for GLobal Secondary Index in the create DynamoDB Table(s), check https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html
     If you are using Global Tables and you have defined replicas variable, check https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html
     JSON tfvars Example
-    "global_secondary_index": {
+    "global_secondary_indexes": {
         "name": "MyTable",
         "hash_key": "Title"
         "range_key": "Rating"
@@ -91,5 +99,5 @@ variable "global_secondary_index" {
         "non_key_attributes": ["Authors"] 
     }
     EOL
-  default     = {}
+  default     = null
 }
