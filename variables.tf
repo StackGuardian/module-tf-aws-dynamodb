@@ -89,7 +89,7 @@ variable "global_secondary_indexes" {
     Seettings for GLobal Secondary Index in the create DynamoDB Table(s), check https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html
     If you are using Global Tables and you have defined replicas variable, check https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html
     JSON tfvars Example
-    "global_secondary_index": {
+    "global_secondary_indexes": {
         "name": "MyTable",
         "hash_key": "Title"
         "range_key": "Rating"
