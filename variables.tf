@@ -76,7 +76,15 @@ variable "replicas" {
 }
 
 variable "global_secondary_index" {
-  type        = map(any)
+  type = object({
+    name               = string
+    hash_key           = string
+    range_key          = string
+    write_capacity     = number
+    read_capacity      = number
+    projection_type    = string
+    non_key_attributes = list(string)
+  })
   description = <<EOL
     Seettings for GLobal Secondary Index in the create DynamoDB Table(s), check https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html
     If you are using Global Tables and you have defined replicas variable, check https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html
