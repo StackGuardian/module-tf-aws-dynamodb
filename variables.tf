@@ -99,5 +99,5 @@ variable "global_secondary_indexes" {
         "non_key_attributes": ["Authors"] 
     }
     EOL
-  default     = null
+  default     = []
 }
